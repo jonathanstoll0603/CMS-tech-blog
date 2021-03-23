@@ -1,0 +1,28 @@
+{
+  "name": "cms-tech-blog",
+  "version": "1.0.0",
+  "description": "The CMS Tech Blog is an application that utilizes a model view controller (MVC) based architecture using Handlebars.js, Sequelize, and Express.js to support the overall functionality of the blog.,",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanstoll0603/CMS-tech-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanstoll0603/CMS-tech-blog/issues"
+  },
+  "homepage": "https://github.com/jonathanstoll0603/CMS-tech-blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "sequelize": "^6.6.1"
+  }
+}
