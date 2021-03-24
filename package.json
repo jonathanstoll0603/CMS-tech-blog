@@ -4,7 +4,9 @@
   "description": "The CMS Tech Blog is an application that utilizes a model view controller (MVC) based architecture using Handlebars.js, Sequelize, and Express.js to support the overall functionality of the blog.,",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
-    "sequelize": "^6.6.1"
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
   }
 }
