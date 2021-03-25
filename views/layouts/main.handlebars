@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Tech Blog</title>
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/jass.css">
 </head>
@@ -16,10 +16,10 @@
 
             {{!-- If user is logged in, display the 'logout' button --}}
             {{#if logged_in}}
-                <button class="no-button" id="logout">Logout</button>
+                <button id="logout-btn" class="no-button">Logout</button>
             {{!-- Else display the 'login' button --}}
             {{else}}
-                <button class="no-button" id="logout">Login</button>
+                <button id="login-btn" class="no-button" id="logout">Login</button>
             {{/if}}
             <h1>The Tech Blog</h1>
         </div>

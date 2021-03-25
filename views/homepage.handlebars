@@ -3,9 +3,7 @@
 <div class="row mb-4 post"></div>
   <div class="col-md-8">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/post/{{post.id}}">{{post.title}}</a>
+      <a href="/thread/{{post.id}}">{{post.title}}</a>
     </h2>
     <p>
       {{!-- Make class "post-info" small and in upper right corner of div --}}
@@ -17,4 +15,4 @@
     </p>
   </div>
 </div>
-{{ /each }}
+{{/each}}
