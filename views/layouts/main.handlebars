@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/jass.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-bar-container">
+            <a href="/">Home</a>
+            <a href="/dashboard">My Dashboard</a>
+
+            {{!-- If user is logged in, display the 'logout' button --}}
+            {{#if logged_in}}
+                <button class="no-button" id="logout">Logout</button>
+            {{!-- Else display the 'login' button --}}
+            {{else}}
+                <button class="no-button" id="logout">Login</button>
+            {{/if}}
+            <h1>The Tech Blog</h1>
+        </div>
+    </nav>
+
+    {{!-- Show partials here --}}
+    {{{body}}}
+
+    {{!-- If user is logged in, use the 'logout' JS file --}}
+    {{#if logged_in}}
+    <script src="/public/js/logout.js"></script>
+    {{!-- Else use the 'login' JS file --}}
+    {{else}}
+    <script src="/public/js/login.js"></script>
+    {{/if}}
+    <script src="/public/js/index.js"></script>
+</body>
+</html>
