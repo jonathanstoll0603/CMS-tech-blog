@@ -1,25 +1,43 @@
+const signupForm = document.querySelector('.signup-form');
+const userEmail = document.querySelector('input#email-signup');
+const userPassword = document.querySelector('input#password-signup');
+const userUsername = document.querySelector('input#username-signup');
 
-const signupFormHandler = async (e) => {
-    e.prevenDefault();
+// event handler for the signupForm submission
+signupForm.addEventListener('submit', event => {
+    event.preventDefault();
 
-    const userEmail = document.querySelector('#email-signup').value().trim();
-    const userPassword = document.querySelector('#password-signup').value().trim();
-    const userUsername = document.querySelector('#username-signup').value().trim();
-    
-    if (userEmail && userPassword && userUsername) {
-        const responseData = await fetch('/api/user/signup', {
-            method: 'POST',
-            body: JSON.stringify({email, password, username}),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (responseData.ok) {
-            document.location.replace('/');
-        } else {
-            alert("Failed to sign up new user. Try a different username and/or email.");
-            return;
-        }
+    // save user inputs in userData object
+    const userData = {
+        username: userUsername.value.trim(),
+        email: userEmail.value.trim(),
+        password: userPassword.value.trim()
     };
-}
 
-document.querySelector('#signup-submit').addEventListener('submit', signupFormHandler);
+    console.log(userData);
+
+    // If user has entered all necessary information, call the signupFormHandler function else return
+    if (userData.username && userData.email && userData.password) {
+        signupFormHandler(userData.username, userData.email, userData.password);
+    } else {
+        alert("Signup unsuccessful. Ensure all necessary fields are filled in and try again.");
+        return;
+    }
+});
+
+// API call to the api/user/ (aka signup) POST route
+async function signupFormHandler(username, email, password) {
+
+    await fetch('/api/user', {
+        method: 'POST',
+        body: JSON.stringify({email, password, username}),
+        headers: { 'Content-Type': 'application/json' },
+    }).then((response) => {
+
+        console.log(response);
+        document.location.replace('/homepage');
+
+    }).catch((err) => {
+        if (err) throw err;
+    });
+};
