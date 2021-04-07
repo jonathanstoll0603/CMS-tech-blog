@@ -1,40 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>The Tech Blog</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="stylesheet" href="/public/css/jass.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-bar-container">
-            <a href="/">Home</a>
-            <a href="/dashboard">My Dashboard</a>
-
-            {{!-- If user is logged in, display the 'logout' button --}}
-            {{#if logged_in}}
-                <button id="logout-btn" class="no-button">Logout</button>
-            {{!-- Else display the 'login' button --}}
-            {{else}}
-                <button id="login-btn" class="no-button" id="logout">Login</button>
-            {{/if}}
-            <h1>The Tech Blog</h1>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <h3 class="navbar-brand">The Tech Blog</h3>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">My Dashboard</a>
+                </li>
+                <li class="nav-item">
+                                {{!-- If user is logged in, display the 'logout' button --}}
+                {{#if logged_in}}
+                    <button id="logout-btn" class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
+                {{!-- Else display the 'login' button --}}
+                {{else}}
+                    <a id="login-attr" class="login" href="/login">Login</a>
+                {{/if}}
+                </li>
+            </ul>
         </div>
     </nav>
 
     {{!-- Show partials here --}}
+    <div class="container-fluid">
     {{{body}}}
-
-    {{!-- If user is logged in, use the 'logout' JS file --}}
+    </div>
+    
     {{#if logged_in}}
-    <script src="/public/js/logout.js"></script>
-    {{!-- Else use the 'login' JS file --}}
-    {{else}}
-    <script src="/public/js/login.js"></script>
+    <script src="/js/logout.js"></script>
     {{/if}}
-    <script src="/public/js/index.js"></script>
 </body>
 </html>
