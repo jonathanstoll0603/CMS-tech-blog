@@ -14,8 +14,6 @@ signupForm.addEventListener('submit', event => {
         password: userPassword.value.trim()
     };
 
-    console.log(userData);
-
     // If user has entered all necessary information, call the signupFormHandler function else return
     if (userData.username && userData.email && userData.password) {
         signupFormHandler(userData.username, userData.email, userData.password);
@@ -30,12 +28,13 @@ async function signupFormHandler(username, email, password) {
 
     await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({email, password, username}),
+        body: JSON.stringify({username, email, password}),
         headers: { 'Content-Type': 'application/json' },
     }).then((response) => {
 
         console.log(response);
-        document.location.replace('/homepage');
+        
+        document.location.replace('/dashboard');
 
     }).catch((err) => {
         if (err) throw err;

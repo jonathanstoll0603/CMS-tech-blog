@@ -21,19 +21,19 @@ loginForm.addEventListener('submit', event => {
 
 // API call to the api/user/login POST route
 async function loginUser(email, password) {
-    await fetch('api/user/login', {
+    const response = await fetch('api/user/login', {
         method: 'POST',
         body: JSON.stringify({email, password}),
         headers: { 'Content-Type': 'application/json' },
-    }).then((response) => {
-
-        console.log(response);
-
-        document.location.replace('/homepage');
-
-    }).catch((err) => {
-        if (err) throw err;
     });
+
+    if (response.ok) {
+        alert("Login Successful!")
+        document.location.replace('/dashboard');
+    } else {
+        alert("Login Unsuccessful. Try Again.")
+        document.location.replace('/login');
+    }
 };
 
 // Below code handles the signup button event handler.
