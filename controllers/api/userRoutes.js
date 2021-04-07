@@ -1,19 +1,17 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
-const { route } = require('../homeRoutes');
 
 // Route handler for signing a user up
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = userData.user_id;
             req.session.logged_in = true;
-
             res.status(200).json(userData);
         });
+        // res.render('dashboard');
 
     } catch (err) {
         res.status(500).json(err);
@@ -24,11 +22,7 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         // find one user with a matching email to the one provided in the req.body
-        const userData = await User.findOne({
-            where: {
-                email: req.body.email
-            }
-        });
+        const userData = await User.findOne({ where: { email: req.body.email }});
 
         // if user email not found, give error message
         if (!userData) {
@@ -47,11 +41,13 @@ router.post('/login', async (req, res) => {
 
         // Save the user's session once logged in
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = userData.user_id;
             req.session.logged_in = true;
             
             res.json({ user: userData, message: 'You are now logged in!' });
-        })
+        });
+
+        // res.render('dashboard');
 
     } catch (err) {
         res.status(400).json(err);
@@ -67,5 +63,6 @@ router.post('/logout', (req, res) => {
       } else {
         res.status(404).end();
       }
-    res.render('login');
-})
+});
+
+module.exports = router;
