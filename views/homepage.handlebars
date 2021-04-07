@@ -1,18 +1,18 @@
 
-{{#each posts as |post| }}
-<div class="row mb-4 post"></div>
-  <div class="col-md-8">
-    <h2>
-      <a href="/thread/{{post.id}}">{{post.title}}</a>
-    </h2>
-    <p>
-      {{!-- Make class "post-info" small and in upper right corner of div --}}
-      <span class="post-info" for="timestamp" aria-label="timestamp">By: {{post.username}} | {{post.date_created}}</span>
-    </p>
-  <div class="col-md-7">
-    <p>
-      {{post.content}}
-    </p>
+{{#each posts as |post|}}
+  <div class="row mb-4 post"></div>
+    <div class="col-md-8">
+      <h2>
+        <a href="/thread/{{post.id}}">{{post.title}}</a>
+      </h2>
+      <p>
+        {{!-- Make class "post-info" small and in upper right corner of div --}}
+        <span class="post-info" for="timestamp" aria-label="timestamp">By: {{post.username}} | {{post.date_created}}</span>
+      </p>
+    <div class="col-md-7">
+      <p>
+        {{post.content}}
+      </p>
+    </div>
   </div>
-</div>
 {{/each}}
