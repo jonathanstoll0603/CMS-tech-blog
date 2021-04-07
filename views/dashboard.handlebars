@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
 
@@ -9,7 +9,7 @@
         <a id="create-post" class="create-post" href="/create">Create a new post</a> 
     </div>
 
-    {{#if post.length}}
+    {{#if posts.length}}
     <div class="col-md-6 project-list">
         <h3>Current Posts:</h3>
         {{#each posts as |post|}}
@@ -34,4 +34,3 @@
     </div>
     {{/if}}
 </div>
-<script src="/js/createPost.js"></script>
