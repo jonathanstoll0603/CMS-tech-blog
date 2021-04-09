@@ -47,23 +47,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
-// GET route for a specific user thread page
+// GET route for a specific user blog post
 router.get('/thread/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: {
-                model: User,
-                exclude: {
-                    attributes: ['password']
-                },
-            },
+            include: [{ model: User }],
+            exclude: { attributes: ['password'] },
         });
-        console.log(postData);
     
-        const threadInfo = postData.map(thread => thread.get({ plain: true }));
-        res.json(threadInfo);
+        const threadInfo = postData.get({ plain: true });
     
-        res.render('thread', threadInfo);
+        res.render('edit', {
+            ...threadInfo,
+            logged_in: true
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -76,7 +73,7 @@ router.get('/create', withAuth, (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 // GET route for signup page
 router.get('/signup', (req, res) => {

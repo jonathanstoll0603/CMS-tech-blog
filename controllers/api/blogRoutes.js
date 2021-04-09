@@ -23,27 +23,28 @@ router.post('/', withAuth, async (req, res) => {
 
 // Route handler for updating an existing post
 router.put('/:id', withAuth, async (req, res) => {
-    
+
     try {
         const postData = await Post.update(req.body, {
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id
             }
-        });
+        })
 
         if (!postData) {
             res.status(400).json({ message: 'post id not found' });
             return;
         }
 
-        console.log(postData);
+        res.status(200).json(postData);
 
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+// Route handler to delete existing post based off of post id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.destroy({
@@ -59,6 +60,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         }
 
         console.log(postData);
+        res.status(200).json(postData);
 
     } catch (err) {
         res.status(500).json(err);
