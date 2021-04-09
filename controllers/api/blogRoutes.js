@@ -45,12 +45,11 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // Route handler to delete existing post based off of post id
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.params.user_id
             }
         });
 
@@ -59,7 +58,6 @@ router.delete('/:id', withAuth, async (req, res) => {
             return;
         }
 
-        console.log(postData);
         res.status(200).json(postData);
 
     } catch (err) {

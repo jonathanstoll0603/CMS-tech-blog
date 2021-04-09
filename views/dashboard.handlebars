@@ -10,27 +10,24 @@
     </div>
 
     {{#if posts.length}}
-    <div class="col-md-6 project-list">
+    <div class="col-md-6 post-list">
         <h3>Current Posts:</h3>
         {{#each posts as |post|}}
         <div class="row mb-4 post">
-            <div class="col-md-8">
-                <h2>
-                <a href="/thread/{{post.id}}">{{post.title}}</a>
-                </h2>
-                <p>
-                {{!-- Make class "post-info" small and in upper right corner of div --}}
-                <span class="post-info" for="timestamp" aria-label="timestamp">By: {{post.username}} | {{post.date_created}}</span>
-                </p>
+            <div class="col-md-12">
+                <h2> <span> ID: {{post.id}}</span> | Title: {{post.title}} </h2>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <p>
                 {{post.content}}
                 </p>
                 <a id="edit-link" class="btn btn-primary" href="/thread/{{post.id}}">Edit Post</a>
+                <button id="delete-btn" data-id="{{post.id}}" class="btn btn-danger">Delete Post</button>
             </div>
         </div>
         {{/each}}
     </div>
     {{/if}}
 </div>
+
+<script src="/js/deletePost.js"></script>
