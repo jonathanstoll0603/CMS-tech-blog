@@ -1,11 +1,14 @@
-<form class="form create-form">
+<form class="form edit-form">
     <div class="form-group">
+        <span class="input-group-text" id="comment-id" data-id="{{id}}">{{id}}</span>
         <span class="input-group-text">Title</span>
-        <textarea id="create-title" class="form-control" aria-label="With textarea">{{post.title}}</textarea>
+        <textarea id="edit-title" class="form-control" aria-label="With textarea">{{title}}</textarea>
     </div>
     <div class="form-group">
-        <span class="input-group-text">What's new technology would you like to blog about?</span>
-        <textarea id="create-content" class="form-control" aria-label="With textarea">{{post.content}}</textarea>
+        <span class="input-group-text">Content</span>
+        <textarea id="edit-content" class="form-control" aria-label="With textarea">{{content}}</textarea>
     </div>
-    <button id="edit-btn" class="btn btn-primary">Edit Post</button>    
+    <button id="edit-btn" class="btn btn-primary" data-id="{{id}}">Submit Edit</button>    
 </form>
+
+<script src="/js/editPost.js"></script>
