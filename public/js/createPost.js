@@ -13,6 +13,7 @@ createForm.addEventListener('submit', event => {
 
     if (postData.title && postData.content) {
         createPostHandler(postData.title, postData.content);
+        alert('Post successfully submitted!')
     } else {
         alert("Post unsuccessful. Ensure all necessary fields are filled in and try again.");
         return;
@@ -22,9 +23,11 @@ createForm.addEventListener('submit', event => {
 async function createPostHandler(title, content) {
 
     await fetch('/api/blog/', {
+
         method: 'POST',
         body: JSON.stringify({title, content}),
         headers: { 'Content-Type': 'application/json' },
+        
     }).then((response) => {
 
         console.log(response);
