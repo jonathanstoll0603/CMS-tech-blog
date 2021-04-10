@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Reply } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET route for the home page
@@ -7,9 +7,10 @@ router.get('/', withAuth, async (req, res) => {
     try {
         // Find all posts from database
         const postData = await Post.findAll({
-            include: {
-                model: User,
-            },
+            include: [{ model: User}, { model: Reply }],
+            exclude: {
+                attributes: ['password']
+            }
         });
 
         // store simplified json object 
@@ -31,7 +32,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         // find the current user's dashboard
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Post }],
+            include: [{ model: Post }, { model: Reply }],
         });
         // store simplified json object 
         const user = userData.get({ plain: true });
@@ -58,6 +59,26 @@ router.get('/thread/:id', withAuth, async (req, res) => {
         const threadInfo = postData.get({ plain: true });
     
         res.render('edit', {
+            ...threadInfo,
+            logged_in: true
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// GET route for a specific user blog post
+router.get('/reply/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }],
+            exclude: { attributes: ['password'] },
+        });
+    
+        const threadInfo = postData.get({ plain: true });
+    
+        res.render('reply', {
             ...threadInfo,
             logged_in: true
         });
