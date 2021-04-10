@@ -1,0 +1,25 @@
+<div class="row mb-2 post-list"></div>
+    <div class="col-md-12">
+      <h2>
+        <span class="post-id-title" data-id="{{id}}">{{title}}</span> 
+      </h2>
+      <p>
+        {{!-- Make class "post-info" small and in upper right corner of div --}}
+        <span class="post-info" for="timestamp" aria-label="timestamp">By: {{user.username}} | {{date_created}}</span>
+      </p>
+    </div>
+    <div class="col-md-12">
+      <p>
+        {{content}}
+      </p>
+    </div>
+</div>
+<form class="row mx-4 form reply-list">
+    <div class="col-md-12 form-group">
+        <span class="input-group-text">Reply</span>
+        <textarea id="reply-content" class="mx-auto form-control" aria-label="With textarea"></textarea>
+    </div>
+<button id="reply-btn" class="btn btn-primary" data-id="{{id}}">Submit Reply</button>
+</form>
+
+<script src="/js/replyPost.js"></script>
