@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
+const { User, Post, Reply } = require('../models');
 
 const userData = require('./userData.json');
 const exmaplePosts = require('./examplePosts.json');
+const exampleReplies = require('./exampleReplies.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -20,6 +21,15 @@ const seedDatabase = async () => {
             user_id: user[Math.floor(Math.random() * user.length)].id
         });
     };
+
+    // Create a reply for each reply post we have in our exampleReplies.json file, and assign a random user_id and post_id to each
+    // for (const reply of exampleReplies) {
+    //     await Reply.create({
+    //         ...reply,
+    //         user_id: user[Math.floor(Math.random() * user.length)].id,
+    //         post_id: post[Math.floor(Math.random() * post.length)].id
+    //     });
+    // };
 
     process.exit(0);
 };
