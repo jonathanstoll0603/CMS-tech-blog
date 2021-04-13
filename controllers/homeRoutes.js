@@ -72,7 +72,7 @@ router.get('/thread/:id', withAuth, async (req, res) => {
 router.get('/reply/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: User }],
+            include: [{ model: User }, { model: Reply }],
             exclude: { attributes: ['password'] },
         });
     
