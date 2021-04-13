@@ -1,33 +1,40 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{username}}!</h2>
-  </div>
+<div class="container container-fluid my-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome, {{username}}!</h2>
+            <a id="create-post" class="create-post" href="/create">Create a new post</a> 
+        </div>
+    </div>
 </div>
 
-<div class="row mb-4 post">
-    <div class="col-md-2">
-        <a id="create-post" class="create-post" href="/create">Create a new post</a> 
-    </div>
+<div class="container container-fluid">
+    <div class="row mb-4 post">
 
-    {{#if posts.length}}
-    <div class="col-md-6 post-list">
-        <h3>Current Posts:</h3>
+        {{#if posts.length}}
+        <div class="col-md-12 current-posts mb-3">
+            <h3>Current Posts:</h3>
+        </div>
+
         {{#each posts as |post|}}
-        <div class="row mb-4 post">
-            <div class="col-md-12">
-                <h2> <span> ID: {{post.id}}</span> | Title: {{post.title}} </h2>
+        <div class="container container-fluid row" id="post-container">
+
+            <div class="col-md-12 py-2">
+                <h2> {{post.title}} </h2>
             </div>
-            <div class="col-md-12">
-                <p>
-                {{post.content}}
-                </p>
+            <div class="col-md-12 py-2">
+                <p>{{post.content}}</p>
                 <a id="edit-link" class="btn btn-primary" href="/thread/{{post.id}}">Edit Post</a>
                 <button id="delete-btn" data-id="{{post.id}}" class="btn btn-danger">Delete Post</button>
             </div>
         </div>
         {{/each}}
+
+        {{else}}
+        <div class="col-md-12">
+            <h4>Looks like you have no recent posts. Click the "create a new post" link above to let the community know what you've been reading about!</h4>
+        </div>
+        {{/if}}
     </div>
-    {{/if}}
 </div>
 
 <script src="/js/deletePost.js"></script>
