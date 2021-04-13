@@ -7,3 +7,42 @@ body {
     background-image: url('/images/tech-background-img.jpg');
     background-size: cover;
 }
+
+#post-container {
+    background-color: lightblue;
+    min-height: 150px;
+    max-width: 1000px;
+}
+
+#post-info {
+    background-color: lightblue;
+    min-height: 150px;
+}
+
+#comment-container {
+    margin: 0 auto;
+}
+
+#signup-container {
+    background-color: lightblue;
+    min-height: 200px;
+    max-width: 300px;
+}
+
+#signup-btn-container {
+    max-width: 250px;
+}
+
+.reply-content {
+    background-color: lightblue;
+    min-height: 150px;
+}
+
+.reply-text {
+    border-bottom: 0.5px solid grey;
+}
+
+.current-posts {
+    border-bottom: 0.5px solid grey;
+    text-align: center;
+}
