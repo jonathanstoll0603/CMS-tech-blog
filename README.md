@@ -56,7 +56,19 @@ npm i
     
 ## Usage
     
-Login or Signup via the deployed Heroku application in order to view, comment, and post to The Tech Blog. 
+For users: Login or Signup via the deployed Heroku application in order to view, comment, and post to The Tech Blog. 
+
+For developers: To run the application after the necessart dependancies have been installed, run the following command:
+    
+```
+npm start
+```
+
+A short gif detailing the applications functionality can be found below.
+
+[CMS Tech Blog Gif](./public/images/cms-tech-blog-video.gif)
+
+---
     
 ## License
 
