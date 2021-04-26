@@ -1,4 +1,4 @@
-const postList = document.querySelector('.post-list');
+const deleteBtn = document.querySelector('#delete-btn');
 
 // function that handles fetch routing for deleting a comment
 async function deleteCommentHandler (event) {
@@ -13,7 +13,7 @@ async function deleteCommentHandler (event) {
         });
         
         if (response.ok) {
-            alert('Comment submitted successfully.')
+            alert('Comment deleted successfully.')
             document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
@@ -23,4 +23,4 @@ async function deleteCommentHandler (event) {
 }
 
 // click handler for deleting a comment 
-postList.addEventListener('click', deleteCommentHandler);
+deleteBtn.addEventListener('click', deleteCommentHandler);
