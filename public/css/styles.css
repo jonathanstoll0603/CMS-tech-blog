@@ -9,32 +9,28 @@ body {
 }
 
 #post-container {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     min-height: 150px;
     max-width: 1000px;
 }
 
-#post-info {
-    background-color: lightblue;
-    min-height: 150px;
-}
-
-#comment-container {
-    margin: 0 auto;
+.create-post {
+    font-size: 32px;
 }
 
 #signup-container {
-    background-color: lightblue;
-    min-height: 200px;
-    max-width: 300px;
+    /* background-color: lightblue; */
+    max-height: 400px;
+    width: 50%;
 }
 
 #signup-btn-container {
-    max-width: 250px;
+    max-height: 400px;
+    width: 50%;
 }
 
 .reply-content {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     min-height: 150px;
 }
 
@@ -45,4 +41,16 @@ body {
 .current-posts {
     border-bottom: 0.5px solid grey;
     text-align: center;
+}
+
+.comment-link {
+    font-size: 14px;
+}
+
+.user-comments {
+    border-bottom: 0.5px solid grey;
+}
+
+.timestamp-info {
+    font-size: 14px;
 }

@@ -1,45 +1,47 @@
-<div class="container container-fluid text-center mt-4" id="post-info">
-  <div class="row mb-2 post-list"></div>
-      <div class="col-md-12">
+<div class="container container-fluid mt-4" id="post-info post-container">
+  <div class="row mt-4 post-list card">
+      <div class="col-md-12 card-header">
         <h2>
-          <span class="post-id-title" data-id="{{id}}">{{title}}</span> 
+          <span class="post-id-title" data-id="{{id}}">{{title}}</span>
         </h2>
-        <div class="col-md-12">
-          <p>
-            {{content}}
-          </p>
-        </div>
-        <p>
+        <p class="timestamp-info">
           <span class="post-info" for="timestamp" aria-label="timestamp">By: {{user.username}} | {{date_created}}</span>
         </p>
+      </div>
+      <div class="col-md-12 card-body">
+          <p>
+            {{content}}
+          </p>        
       </div>
   </div>
 </div>
 
 <div class="container container-fluid mt-4">
-  <form class="row mx-4 form reply-list">
+  <form class="row form reply-list">
       <div class="col-md-12 form-group">
           <span class="input-group-text">Reply</span>
-          <textarea id="reply-content" class="mx-auto form-control" aria-label="With textarea"></textarea>
-          <button id="reply-btn" class="btn btn-primary mb-4" data-id="{{id}}">Submit Reply</button>
+          <textarea id="reply-content" class="form-control" aria-label="With textarea"></textarea>
+          <button id="reply-btn" class="btn btn-primary mt-2" data-id="{{id}}">Submit Reply</button>
       </div>
   </form>
 </div>
 
-<div class="container container-fluid" id="comment-container">
-  <div class="row replies text-center my-2">
-    <div class="col-md-12"><h4>User Comments:</h4></div>
+<div class="container container-fluid">
+  <div class="row replies text-center my-4">
+    <div class="col-md-12 user-comments">
+      <h4>User Comments:</h4>
+    </div>
   </div>
-  <div class="row mb-2 reply-list">
-    <div class="col-md-12">
-  {{#each replies as |reply|}}
-    <div class="col-md-12 reply-content mb-3">
-      <p class="reply-text py-4">{{reply.content}}</p>
-      <p>
+  <div class="row mb-4">
+  
+    {{#each replies as |reply|}}
+    <div class="col-md-12 reply-content card">
+      <p class="card-header">
         <span class="reply-info" for="timestamp" aria-label="timestamp">By: {{../user.username}} | {{reply.date_created}}</span>
       </p>
+      <p class="card-body">{{reply.content}}</p>
     </div>
-  {{/each}}
+    {{/each}}
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <div class="container container-fluid my-4">
     <div class="row">
         <div class="col-md-12">
-            <h2>Welcome, {{username}}!</h2>
+            <h2 class="display-4">Welcome, {{username}}!</h2>
             <a id="create-post" class="create-post" href="/create">Create a new post</a> 
         </div>
     </div>
@@ -11,30 +11,32 @@
     <div class="row mb-4 post">
 
         {{#if posts.length}}
-        <div class="col-md-12 current-posts mb-3">
-            <h3>Current Posts:</h3>
+        <div class="col-md-12 current-posts mb-4">
+            <h1>Current Posts:</h1>
         </div>
+    </div>
 
-        {{#each posts as |post|}}
-        <div class="container container-fluid row" id="post-container">
-
-            <div class="col-md-12 py-2">
-                <h2> {{post.title}} </h2>
-            </div>
-            <div class="col-md-12 py-2">
-                <p>{{post.content}}</p>
-                <a id="edit-link" class="btn btn-primary" href="/thread/{{post.id}}">Edit Post</a>
-                <button id="delete-btn" data-id="{{post.id}}" class="btn btn-danger">Delete Post</button>
-            </div>
+    {{#each posts as |post|}}
+    <div class="row card mb-4" id="post-container">
+        <div class="col-md-12 py-2 card-header">
+            <h2> {{post.title}} </h2>
         </div>
-        {{/each}}
-
-        {{else}}
-        <div class="col-md-12">
-            <h4>Looks like you have no recent posts. Click the "create a new post" link above to let the community know what you've been reading about!</h4>
+        <div class="col-md-12 py-2 card-body mb-2">
+            <p>{{post.content}}</p>
+            <a id="edit-link" class="btn btn-primary" href="/thread/{{post.id}}">Edit Post</a>
+            <button id="delete-btn" data-id="{{post.id}}" class="btn btn-danger">Delete Post</button>
         </div>
-        {{/if}}
+    </div>
+    {{/each}}
+</div>
+    {{else}}
+<div class="container container-fluid mt-2">
+    <div class="row card mb-4">
+        <div class="col-md-12 text-center card-header">
+            <p>Looks like you have no recent posts. Click the "create a new post" link above to let the community know what you've been reading about!</h4>
+        </div>
     </div>
 </div>
+    {{/if}}
 
 <script src="/js/deletePost.js"></script>

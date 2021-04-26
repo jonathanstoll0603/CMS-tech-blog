@@ -1,16 +1,16 @@
 
 {{#each posts as |post|}}
-<div class="container container-fluid mt-4" id="post-container">
-  <div class="row mb-2 post-list"></div>
-    <div class="col-md-12">
+<div class="container container-fluid mt-5" id="post-container">
+  <div class="row mb-4 post-list card">
+    <div class="col-md-12 card-header">
       <h2>
         <span class="post-id-title" data-id="{{post.id}}">{{post.title}}</span> 
       </h2>
       <p>
-        <span class="post-info" for="timestamp" aria-label="timestamp">By: {{post.user.username}} | Posted On: {{post.date_created}}</span>
+        <span class="post-info timestamp-info" for="timestamp" aria-label="timestamp">By: {{post.user.username}} | Posted On: {{post.date_created}}</span>
       </p>
     </div>
-    <div class="col-md-12 py-3">
+    <div class="col-md-12 py-3 card-body">
       <p>
         {{post.content}}
       </p>
