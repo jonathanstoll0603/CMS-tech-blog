@@ -2,7 +2,7 @@
 
 Come share your newest technological discoveries, questions, or facts with The Tech Blog community in an easy to use blog-style application that connects tech-savvy users from around the globe.
 
-[Deployed Heroku Application](https://thawing-taiga-70076.herokuapp.com/)
+[Deployed Heroku Application](https://vast-sands-94649.herokuapp.com/)
 
 ---
     
@@ -90,7 +90,7 @@ If you wish to contribute to this project, contact Jonathan Stoll via GitHub a [
     
 ## Links
     
-A deployed version of the application via Heroku can be found [here](https://thawing-taiga-70076.herokuapp.com/)
+A deployed version of the application via Heroku can be found [here](https://vast-sands-94649.herokuapp.com/)
     
 ---
     
