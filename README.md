@@ -66,7 +66,7 @@ npm start
 
 A short gif detailing the applications functionality can be found below.
 
-[CMS Tech Blog Gif](./public/images/cms-tech-blog-video.gif)
+![CMS Tech Blog Gif](./public/images/cms-tech-blog-video.gif)
 
 ---
     
